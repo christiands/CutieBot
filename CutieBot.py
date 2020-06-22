@@ -2,9 +2,11 @@
 # https://discord.com/api/oauth2/authorize?client_id=724544193489272842&permissions=8&scope=bot
 
 import discord
+from data import compliments
 from discord.ext import commands
 from dotenv import load_dotenv  # load module for usage of a .env file
 import os  # import module for directory management
+import random
 
 # discord token is stored in a .env file in the same directory as the bot
 load_dotenv()  # load the .env file containing id's that have to be kept secret for security
@@ -53,6 +55,12 @@ async def on_message(message):
 @bot.command(name='test', help='test if the bot is working')
 async def test(ctx):
     response = 'Don\'t worry, I\'m working!'
+    await ctx.send(response)
+
+
+@bot.command(name='compliment', help='admire fuby randomly')
+async def compliment(ctx):
+    response = random.choice(compliments)
     await ctx.send(response)
 
 
