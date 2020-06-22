@@ -1,0 +1,50 @@
+# aqua.py
+# https://discord.com/api/oauth2/authorize?client_id=724544193489272842&permissions=8&scope=bot
+
+import discord
+from discord.ext import commands
+
+TOKEN = 'NzI0NTQ0MTkzNDg5MjcyODQy.XvBufA.tU2HpWhT6mHrjKg_-IqJc2WyW3c'
+bot = commands.Bot(command_prefix='qt!')
+
+fubyID = 724544193489272842
+
+
+@bot.event
+async def on_ready():
+    print('bot connected')
+    await bot.change_presence(activity=discord.Game("Being Gay"))
+
+
+class Greetings(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+        self._last_member = None
+
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+        channel = member.guild.system_channel
+        if channel is not None:
+            greeting = "Hello, Welcome to the greatest server of all time"
+            await channel.send(greeting)
+
+
+@bot.event
+async def on_message(message):
+    if message.author.id == bot.user.id:
+        return
+
+    if bot.get_user(fubyID) in message.mentions:
+        response = "Hi, I'm Fuby and I'm cute!"
+        await message.channel.send(response, delete_after=60)
+
+    await bot.process_commands(message)
+
+
+@bot.command(name='test', help='test if the bot is working')
+async def test(ctx):
+    response = 'Don\'t worry, I\'m working!'
+    await ctx.send(response)
+
+
+bot.run(TOKEN)
