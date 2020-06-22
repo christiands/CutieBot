@@ -3,8 +3,13 @@
 
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv  # load module for usage of a .env file
+import os  # import module for directory management
 
-TOKEN = 'NzI0NTQ0MTkzNDg5MjcyODQy.XvBufA.tU2HpWhT6mHrjKg_-IqJc2WyW3c'
+# discord token is stored in a .env file in the same directory as the bot
+load_dotenv()  # load the .env file containing id's that have to be kept secret for security
+TOKEN = os.getenv('DISCORD_TOKEN')  # get our discord bot token from .env
+
 bot = commands.Bot(command_prefix='qt!')
 
 fubyID = 724544193489272842
