@@ -66,14 +66,14 @@ async def compliment(ctx):
 
 @bot.command(name='invite', help='admire fuby randomly')
 async def invite(ctx):
-    response = random.choice("https://discord.gg/2UQq8vG")
+    response = "https://discord.gg/2UQq8vG"
     await ctx.send(response)
 
 
 @bot.command(name='server', help='admire fuby randomly')
 async def compliment(ctx):
-    response = random.choice(f'HammerSMP best server uwu\n'
-                             f'https://discord.gg/QMuwbqa')
+    response = f'HammerSMP best server uwu\n' \
+               f'https://discord.gg/QMuwbqa'
     await ctx.send(response)
 
 
