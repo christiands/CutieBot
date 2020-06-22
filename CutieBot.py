@@ -43,6 +43,10 @@ async def on_message(message):
         response = "Hi, I'm Fuby and I'm cute!"
         await message.channel.send(response, delete_after=60)
 
+    if "iron forge" in message.content:
+        response = "that's a trash upgrade"
+        await message.channel.send(response)
+
     await bot.process_commands(message)
 
 
