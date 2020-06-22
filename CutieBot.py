@@ -41,6 +41,9 @@ async def on_message(message):
     if message.author.id == bot.user.id:
         return
 
+    if message.author.bot:
+        return
+
     if bot.get_user(fubyID) in message.mentions:
         response = "Hi, I'm Fuby and I'm cute!"
         await message.channel.send(response, delete_after=60)
@@ -64,17 +67,18 @@ async def compliment(ctx):
     await ctx.send(response)
 
 
-@bot.command(name='invite', help='admire fuby randomly')
+@bot.command(name='invite', help='get the server inviet')
 async def invite(ctx):
     response = "https://discord.gg/2UQq8vG"
     await ctx.send(response)
 
 
-@bot.command(name='server', help='admire fuby randomly')
+@bot.command(name='server', help='get the name and link of fubys main minecraft server')
 async def compliment(ctx):
     response = f'HammerSMP best server uwu\n' \
                f'https://discord.gg/QMuwbqa'
     await ctx.send(response)
 
 
+bot.add_cog(Greetings(bot))
 bot.run(TOKEN)
