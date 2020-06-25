@@ -5,4 +5,10 @@ compliments = ["Fuby is a good slimestoner",
                "Fuby is like totally cute",
                "I'm inspired by you.",
                "You're like a ray of sunshine on a really dreary day",
-               "You're a smart cookie"]
+               "You're a smart cookie",
+               "Fuby is yes.",
+               "Cutie Fuby is",
+               "Fuby is a perfectly normal human being.",
+               "Is yes Fuby?",
+               "Fuby can really use a keyboard.",
+               "Fuby can read."]
